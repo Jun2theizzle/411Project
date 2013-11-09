@@ -30,5 +30,12 @@ namespace FreeTime.Controllers
 
             return View();
         }
+
+        public ActionResult Profile()
+        {
+            ViewBag.Message = "Your Profile Here";
+            return View();
+
+        }
     }
 }
