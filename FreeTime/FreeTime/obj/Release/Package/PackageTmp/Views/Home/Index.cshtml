@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Welcome to ClassCloud";
+}
+@model IEnumerable<FreeTime.Models.Course>
+
+<div class="wrapper col4">
+    <div class="container">
+        <div id="content">
+            <div id="featured_post">
+                <p>@ViewBag.Title.</p>
+                <p>@ViewBag.Message</p>
+                <p>Current Courses Offered:</p>
+                <table>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.First().Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().CourseID)</th>
+                        <th>@Html.DisplayNameFor(model => model.First().ID)</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CourseID)
+                            </td>
+
+                            <th>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </th>
+
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+        <div id="column">
+            <ul id="latestnews">
+                <li>
+                    <p>
+                        ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+        enables a clean separation of concerns and that gives you full control over markup
+        for enjoyable, agile development. ASP.NET MVC includes many features that enable
+        fast, TDD-friendly development for creating sophisticated applications that use
+        the latest web standards.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
+                    </p>
+
+                </li>
+
+                <li>
+                    <p>
+                        Add NuGet packages and jump-start your coding
+                    NuGet makes it easy to install and update free libraries and tools.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245153">Learn more…</a>
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        You can easily find a web hosting company that offers the right mix of features
+        and price for your applications.
+        <a href="http://go.microsoft.com/fwlink/?LinkId=245157">Learn more…</a>
+                    </p>
+
+                </li>
+            </ul>
+        </div>
+        <br class="clear">
+    </div>
+    <br class="clear">
+</div>
