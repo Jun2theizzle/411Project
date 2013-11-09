@@ -11,7 +11,7 @@ namespace FreeTime.Controllers
     {
         public ActionResult Index()
         {
-            
+            //hey
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
             //return View(new MenuManagerContext().Chains.ToList());
             return View(new ClassCloudContext().Courses.ToList());
