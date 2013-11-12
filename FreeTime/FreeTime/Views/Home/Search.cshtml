@@ -4,12 +4,14 @@
 
 <h2>Search</h2>
 @model IEnumerable<FreeTime.Models.Course>
+<p>
+     @Html.ActionLink("Create New", "Create") 
 
      @using (Html.BeginForm()){    
          <p> Title: @Html.TextBox("SearchString") <br />   
          <input type="submit" value="Filter" /></p> 
         } 
-
+</p>
 <table>
                     <tr>
                         <th>@Html.DisplayNameFor(model => model.First().Name)</th>

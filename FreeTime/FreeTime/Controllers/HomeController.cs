@@ -9,12 +9,13 @@ namespace FreeTime.Controllers
 {
     public class HomeController : Controller
     {
+        private ClassCloudContext db = new ClassCloudContext();
         public ActionResult Index()
         {
             
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
             //return View(new MenuManagerContext().Chains.ToList());
-            return View(new ClassCloudContext().Courses.ToList());
+            return View(db.Courses.ToList());
         }
 
         public ActionResult About()
@@ -48,6 +49,28 @@ namespace FreeTime.Controllers
                 courses = courses.Where(s => s.Name.Contains(searchString));
             } 
             return View(courses);
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Course newCourse)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Courses.Add(newCourse);
+                db.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(newCourse);
+            }
         }
     }
 }
