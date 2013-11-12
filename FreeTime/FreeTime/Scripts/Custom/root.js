@@ -1,10 +1,15 @@
-﻿var mainVM = function () {
-    var self = this;
-    self.test = function () {
-        alert('hui');
+﻿var VM = VM || {};
 
-    };
-    
+VM.index = (function (ko, $) {
+    function home() {
+        var self = this;
+        self.test = function () {
+            alert('hi');
 
-    return {};
-};
+        };
+    }
+    function initModule() {
+        ko.applyBindings(new home());
+    }
+    return { initModule: initModule };
+})(ko, $);

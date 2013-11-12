@@ -4,6 +4,11 @@
 @model IEnumerable<FreeTime.Models.Course>
 
 <div class="wrapper col4">
+    <script>
+        $(document).ready(function () {
+            VM.index.initModule();
+    });
+    </script>
     <div class="container">
         <div id="content">
             <div id="featured_post">
@@ -46,7 +51,8 @@
         the latest web standards.
         <a href="http://go.microsoft.com/fwlink/?LinkId=245151">Learn more…</a>
                     </p>
-                <span data-bind="text: mainVM"></span>
+                    
+                <button data-bind="click: test">HEY</button>
                 </li>
 
                 <li>

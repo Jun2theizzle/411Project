@@ -10,7 +10,6 @@ namespace FreeTime
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"
-                      
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
@@ -26,7 +25,7 @@ namespace FreeTime
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include("~/Scripts/knockout-2.1.0.js"));
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
                     "~/Scripts/Custom/root.js"
                 ));
@@ -44,6 +43,8 @@ namespace FreeTime
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+            BundleTable.EnableOptimizations = true;
+
         }
     }
 }
