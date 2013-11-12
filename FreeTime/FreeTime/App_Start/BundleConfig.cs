@@ -27,7 +27,8 @@ namespace FreeTime
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
             bundles.Add(new ScriptBundle("~/bundles/knockout").Include("~/Scripts/knockout-2.1.0.js"));
             bundles.Add(new ScriptBundle("~/bundles/scripts").Include(
-                    "~/Scripts/Custom/root.js"
+                    "~/Scripts/Custom/root.js",
+                    "~/Scripts/Custom/searchVM.js"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

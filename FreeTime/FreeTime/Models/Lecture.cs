@@ -6,24 +6,18 @@ using System.Web;
 
 namespace FreeTime.Models
 {
-    public class Course
+    public class Lecture
     {
         public int ID { get; set; }
-        public int CourseID { get; set; }
         public string Name { get; set; }
-        public ICollection<Lecture> Lectures { get; set; }
+        public ICollection<Comment> Discussion { get; set; }
         public ICollection<int> StudentIDs { get; set; }
+        public int CourseID { get; set; }
 
-        public Course()
+        public Lecture()
         {
-            Lectures = new Collection<Lecture>();
+            Discussion = new Collection<Comment>();
             StudentIDs = new Collection<int>();
-        }
-        public Course(int CRN, string CourseName)
-        {
-            CourseID = CRN;
-            Name = CourseName;
-
         }
     }
 }
