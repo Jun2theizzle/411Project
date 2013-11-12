@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201311090128044_initial.Designer.cs">
       <DependentUpon>201311090128044_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311122128597_modelchanges.cs" />
+    <Compile Include="Migrations\201311122128597_modelchanges.Designer.cs">
+      <DependentUpon>201311122128597_modelchanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Models\ClassCloudContext.cs" />
@@ -345,6 +349,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201311090128044_initial.resx">
       <DependentUpon>201311090128044_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311122128597_modelchanges.resx">
+      <DependentUpon>201311122128597_modelchanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
