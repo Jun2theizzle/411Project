@@ -27,7 +27,7 @@
                 var encodedMsg = $('<div />').text(message).html();
                 var currentdate = new Date();
                 // Add the message to the page. 
-                $('#discussion').append('<li class="comment_odd"><div class="author"><span class="name"><a href="#">' + encodedName + '</a></span></div>'
+                $('#discussion').prepend('<li class="comment_odd"><div class="author"><span class="name"><a href="#">' + encodedName + '</a></span></div>'
                     + '<div class="submitdate"><a href="#">' + currentdate + '</a></div>'
                     + '<p>' + encodedMsg + '</p></li>');
             };
