@@ -37,5 +37,17 @@ namespace FreeTime.Controllers
             return View();
 
         }
+
+        public ActionResult Search(string searchString)
+        {
+            var courses = from m in new ClassCloudContext().Courses
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                courses = courses.Where(s => s.Name.Contains(searchString));
+            } 
+            return View(courses);
+        }
     }
 }
