@@ -5,8 +5,7 @@
     <input type="text" id="message" />
     <input type="button" id="sendmessage" value="Send" />
     <input type="hidden" id="displayname" />
-    <ul class="commentlist" id="discussion">
-    </ul>
+    <ul class="commentlist" id="discussion"></ul>
 </div>
 @section scripts {
     <!--Script references. -->
@@ -18,30 +17,38 @@
     <!--SignalR script to update the chat page and send messages.-->
     <script>
         $(function () {
-            // Declare a proxy to reference the hub. 
+            // Declare a proxy to reference the hub.
             var chat = $.connection.chatHub;
             // Create a function that the hub can call to broadcast messages.
             chat.client.broadcastMessage = function (name, message) {
-                // Html encode display name and message. 
+                // Html encode display name and message.
                 var encodedName = $('<div />').text(name).html();
                 var encodedMsg = $('<div />').text(message).html();
                 var currentdate = new Date();
-                // Add the message to the page. 
-                $('#discussion').prepend('<li class="comment_odd"><div class="author"><span class="name"><a href="#">' + encodedName + '</a></span></div>'
-                    + '<div class="submitdate"><a href="#">' + currentdate + '</a></div>'
-                    + '<p>' + encodedMsg + '</p></li>');
-            };
+                // Add the message to the page.
+                $('#discussion').prepend('<li class="comment_odd"><div class="author"><span class="name"><a href="#">'
+                    + encodedName + '</a></span></div>'
+    + '<div class="submitdate"><a href="#">' + currentdate + '</a></div>'
+    + '<p>' + encodedMsg + '</p></li>');};
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('Enter your name:', ''));
-            // Set initial focus to message input box.  
+            // Set initial focus to message input box.
             $('#message').focus();
             // Start the connection.
             $.connection.hub.start().done(function () {
                 $('#sendmessage').click(function () {
-                    // Call the Send method on the hub. 
+                    // Call the Send method on the hub.
                     chat.server.send($('#displayname').val(), $('#message').val());
-                    // Clear text box and reset focus for next comment. 
+                    // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
+                });
+                $('#message').keyup(function(event){
+                    if(event.keyCode == 13){
+                        // Call the Send method on the hub.
+                        chat.server.send($('#displayname').val(), $('#message').val());
+                        // Clear text box and reset focus for next comment.
+                        $('#message').val('').focus();
+                    }
                 });
             });
         });

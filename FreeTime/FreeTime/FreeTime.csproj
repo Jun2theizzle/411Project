@@ -204,6 +204,10 @@
     <Compile Include="Migrations\201311122128597_modelchanges.Designer.cs">
       <DependentUpon>201311122128597_modelchanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201311231846021_AddedDateTimetoLecture.cs" />
+    <Compile Include="Migrations\201311231846021_AddedDateTimetoLecture.Designer.cs">
+      <DependentUpon>201311231846021_AddedDateTimetoLecture.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Models\ClassCloudContext.cs" />
@@ -352,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201311122128597_modelchanges.resx">
       <DependentUpon>201311122128597_modelchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201311231846021_AddedDateTimetoLecture.resx">
+      <DependentUpon>201311231846021_AddedDateTimetoLecture.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

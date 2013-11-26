@@ -23,6 +23,8 @@ namespace FreeTime.Models
         {
             CourseID = CRN;
             Name = CourseName;
+            Lectures = new Collection<Lecture>();
+            StudentIDs = new Collection<int>();
 
         }
     }

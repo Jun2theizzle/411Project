@@ -4,40 +4,33 @@
 @model IEnumerable<FreeTime.Models.Course>
 
 <div class="wrapper col4">
-    <script>
-        $(document).ready(function () {
-            VM.index.initModule();
-    });
-    </script>
+  
     <div class="container">
         <div id="content">
             <div id="featured_post">
                 <p>@ViewBag.Title.</p>
                 <p>@ViewBag.Message</p>
                 <p>Current Courses Offered:</p>
-                <table>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.First().Name)</th>
-                        <th>@Html.DisplayNameFor(model => model.First().CourseID)</th>
-                        <th>@Html.DisplayNameFor(model => model.First().ID)</th>
-                    </tr>
+               
+                
+                <ul class="commentlist" id="discussion">
                     @foreach (var item in Model)
                     {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CourseID)
-                            </td>
+                    
+                    <li class="comment_odd">
+                        <div class="author">
+                            <span class="name">
+                                @Html.DisplayFor(modelItem => item.Name) 
+                            </span>
+                            <button data-bind="click: function(){searchVM.LoadCourseInfo(@item.ID)}">Go!</button>
+                        </div>
+                        
+                    </li> }
+                   
+                </ul>
+               
+                
 
-                            <th>
-                                @Html.DisplayFor(modelItem => item.ID)
-                            </th>
-
-                        </tr>
-                    }
-                </table>
             </div>
         </div>
         <div id="column">
@@ -45,7 +38,8 @@
                 <li>
                     <p>
                         Search for notes
-                        <button data-bind="click: searchVM.test"></button>
+                        <button data-bind="click: searchVM.test">Search!</button>
+                       
                     </p>
                 </li>
 
@@ -60,3 +54,8 @@
     </div>
     <br class="clear">
 </div>
+<script>
+    $(document).ready(function () {
+        VM.index.initModule();
+    });
+</script>

@@ -13,10 +13,32 @@ namespace FreeTime.Controllers
         public ActionResult Index()
         {
             
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            
             //return View(new MenuManagerContext().Chains.ToList());
             return View(db.Courses.ToList());
         }
+        
+        [ActionName("loadcourseinfo")]
+        [HttpGet]
+        public ActionResult LoadCourseInfo(int ID)
+        {
+           
+            var CourseInfo = (from _Course in db.Courses
+                              where _Course.ID == ID
+                              select _Course).FirstOrDefault();
+            var Lectures = (from _Lecture in db.Lectures
+                            where _Lecture.CourseID == ID
+                            select _Lecture).ToArray<Lecture>();
+            CourseInfo.Lectures = Lectures;
+
+            var StudentIDs = (from _Course in db.Courses
+                              where _Course.ID == ID
+                              select _Course.StudentIDs).FirstOrDefault();
+            CourseInfo.StudentIDs = StudentIDs;
+            return Json(CourseInfo, JsonRequestBehavior.AllowGet);
+        }
+
+
 
         public ActionResult About()
         {

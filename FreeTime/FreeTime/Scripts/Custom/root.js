@@ -4,6 +4,10 @@ VM.index = (function (ko, $) {
     function home() {
         var self = this;
         self.searchVM = new searchVM();
+       
+
+        
+
     }
     function initModule() {
         ko.applyBindings(new home());
